@@ -35,6 +35,7 @@ def index():
                 image.save(filepath)
                 print(filepath)
         return ('', 204)
+    print(my_pred.labels)
     return render_template('index.html')
 
 #####################################################################################
