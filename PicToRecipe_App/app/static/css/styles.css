@@ -23,15 +23,17 @@ body
 
 .del
 {
-  position:absolute;
-  top:0px;
-  right:15px;
-  width:30px;
-  height:30px;
-  text-align:center;
-  line-height:30px;
-  background-color:rgba(255,255,255,0.6);
-  cursor:pointer;
+
+    position: absolute;
+    top: 3rem;
+    right: 15px;
+    width: 30px;
+    height: 30px;
+    text-align: center;
+    line-height: 30px;
+    background-color: #5f9ea0;
+    cursor: pointer;
+
 }
 .imgAdd
 {

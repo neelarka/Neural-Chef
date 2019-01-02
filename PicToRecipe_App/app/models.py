@@ -56,15 +56,15 @@ class PredictRawVeggies:
         predictions = []
         #predict
         for image_name in images:
-            image_path = folder+ "\\" +image_name
+            image_path = folder+ "/" + image_name
             print(f"imagepath: {image_path}")
             test_image = keras.preprocessing.image.load_img(image_path, target_size=(224,224), grayscale=False)
             test_image = image.img_to_array(test_image)
             test_image = np.expand_dims(test_image, axis=0)
             test_image = preprocess_input(test_image)
-            print(test_image)
+            # print(test_image)
             predict = self.model_final.predict(test_image)
-            print(predict)
+            # print(predict)
             zip_pred= zip(predict[0], self.labels)
             for pred_value, pred in zip_pred:
                 if (pred_value > 0.7):
