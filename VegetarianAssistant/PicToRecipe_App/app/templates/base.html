@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport" />
+    <meta http-equiv="ScreenOrientation" content="autoRotate:disabled">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <title>Neural Chef</title>
+
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/jquery-ui.min.js"></script>
+
+    <!-- Bootstrap's JavaScript -->
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+
+
+    
+    <meta charset='UTF-8'>
+    <meta name="robots" content="noindex">
+    <link rel="shortcut icon" type="image/x-icon" href="https://docs.google.com/drawings/d/e/2PACX-1vQJlVT1VzMzfyrQLQ6yEqIkMCA1XYSLci6F1lrfii9ARG99ACy7NWkZ7h2js-2oN-FDPN9QWDtxM0GO/pub?w=960&h=720" />
+    <link rel="mask-icon" type="" href="//production-assets.codepen.io/assets/favicon/logo-pin-f2d2b6d2c61838f7e76325261b7195c27224080bc099486ddd6dccb469b8e8e6.svg" color="#111" />
+    <link rel="canonical" href="https://codepen.io/DasBo/pen/RpwOmp?limit=all&page=38&q=image" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel='stylesheet prefetch' href='https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css'><link rel='stylesheet prefetch' href='https://cdnjs.cloudflare.com/ajax/libs/foundation/6.3.0/css/foundation.min.css'><link rel='stylesheet prefetch' href='//cdn.materialdesignicons.com/1.8.36/css/materialdesignicons.min.css'>
+
+    <style class="cp-pen-styles">
+    @import url("https://fonts.googleapis.com/icon?family=Material+Icons");
+    @import url("https://fonts.googleapis.com/css?family=Raleway");
+    </style>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+
+  </head>
+  <body>
+<!-- Navigation -->
+
+
+<nav class="navbar navbar-expand-lg navbar-light bg-light sticky-top">
+    <a class="navbar-brand" href="#">
+        <img src="https://docs.google.com/drawings/d/e/2PACX-1vQJlVT1VzMzfyrQLQ6yEqIkMCA1XYSLci6F1lrfii9ARG99ACy7NWkZ7h2js-2oN-FDPN9QWDtxM0GO/pub?w=960&h=720" width="30" height="30" class="d-inline-block align-top" alt="">
+        Neural Chef
+      </a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNavDropdown">
+      <ul class="navbar-nav">
+        <li class="nav-item active">
+          <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#">Assistant</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#">About</a>
+        </li>
+      </ul>
+    </div>
+  </nav>
+
+
+  <section id="intro" style="background: url(https://images.pexels.com/photos/616404/pexels-photo-616404.jpeg) center center no-repeat; background-size: cover;">
+    <div class="container text-center">
+      <div><img src="https://docs.google.com/drawings/d/e/2PACX-1vQJlVT1VzMzfyrQLQ6yEqIkMCA1XYSLci6F1lrfii9ARG99ACy7NWkZ7h2js-2oN-FDPN9QWDtxM0GO/pub?w=960&h=720" alt="logo" width="200"></div>
+      <h1>Neural Chef</h1>
+      <p>Use neural networks to identify vegetables and discover delicious and healthy recipes.
+      </p>
+    </div>
+
+  </section>
+
+    {% block content %}
+
+
+    {% endblock %}
+
+    <!-- Footer -->
+
+    <footer>
+        <div class="footer">NEURAL CHEF</div>
+    </footer>
+
+    <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+    <script src='//production-assets.codepen.io/assets/common/stopExecutionOnTimeout-b2a7b3fe212eaa732349046d8416e00a9dec26eb7fd347590fbced3ab38af52e.js'></script>
+    <script type="text/javascript" src="{{url_for('static', filename='js/config.js')}}"></script>
+    <script type="text/javascript" src="{{url_for('static', filename='js/app.js')}}"></script>
+
+    </body>
+</html>

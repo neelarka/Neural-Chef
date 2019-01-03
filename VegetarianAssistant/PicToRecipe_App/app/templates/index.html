@@ -1,0 +1,29 @@
+{% extends "base.html" %}
+{% block content %}
+<br><div class="container">
+    <form class="form-inline"  method="post"  enctype=multipart/form-data>
+    <div class="row">
+           <div class="col-lg-3 col-sm-3 imgUp">
+             <figcaption class="figure-caption" id="image-name">A caption for the below image.</figcaption>
+             <br>
+               <div class="form-group">
+                   <div class="imagePreview"></div>
+                   <div class="upload-options">
+                       <label>
+                           <input action = "/" type="file" name='file' class="image-upload" accept="image/*" />
+                       </label>
+                    </div>
+                </div>
+
+            </div>
+
+       </form>
+       <i class="fa fa-plus imgAdd"></i>
+   </div>
+   <div class="row">
+       <button class="btn btn-primary predictButton" image_id="image"> Predict Ingredient </button>
+   </div>
+
+</div>
+
+{% endblock %}
