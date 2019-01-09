@@ -18,12 +18,16 @@ class PredictRawVeggies:
         self.img_width = 224
         self.img_height = 224
 
-        self.create_model()
-
-        self.model_final._make_predict_function()
         #get the labels
         df_labels = pd.read_csv("labels.csv")
+        df_labels = df_labels.sort_values(by=['Index'])
         self.labels= list(df_labels['Label'])
+        self.num_labels = len(self.labels)
+
+        self.create_model()
+        
+        self.model_final._make_predict_function()
+
 
     ############################################################################
     def create_model(self):
@@ -42,7 +46,7 @@ class PredictRawVeggies:
         x = Dropout(0.2)(x)
         x = Dense(128, activation="relu")(x)
         #Add output layer
-        predictions = Dense(22, activation="softmax")(x)
+        predictions = Dense(self.num_labels, activation="softmax")(x)
         #create the final model
         self.model_final = Model(inputs = model.input, outputs = predictions)
         #load the weights
@@ -56,15 +60,15 @@ class PredictRawVeggies:
         predictions = []
         #predict
         for image_name in images:
-            image_path = folder+ "\\" +image_name
+            image_path = folder+ "/" + image_name
             print(f"imagepath: {image_path}")
             test_image = keras.preprocessing.image.load_img(image_path, target_size=(224,224), grayscale=False)
             test_image = image.img_to_array(test_image)
             test_image = np.expand_dims(test_image, axis=0)
             test_image = preprocess_input(test_image)
-            print(test_image)
+            # print(test_image)
             predict = self.model_final.predict(test_image)
-            print(predict)
+            # print(predict)
             zip_pred= zip(predict[0], self.labels)
             for pred_value, pred in zip_pred:
                 if (pred_value > 0.7):
