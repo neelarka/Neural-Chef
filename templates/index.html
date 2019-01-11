@@ -1,5 +1,10 @@
 {% extends "base.html" %}
 {% block content %}
+
+<div>
+  {% include "nav.html" %}
+</div>
+
 <br>
 <div class="bg-light" style="padding: 50px;">
     <form class="form-inline" method="post" enctype=multipart/form-data> <div class="row">
@@ -12,18 +17,40 @@
                     <label>
                         <i class="fas fa-upload"></i>
                         <input action="/" type="file" name='file' class="image-upload" accept="image/*" />
-
                     </label>
                 </div>
             </div>
-
         </div>
-
     </form><!-- col-2 -->
     <i class="fa fa-plus imgAdd"></i>
 </div><!-- row -->
+   <div class="row">
+       <div class="col-lg-3 col-sm-3 recipe">
+           <button class="btn btn-primary float-right recipeButton" image_id="image"> Show Recipes </button>
+        </div>
+       <div class="col-lg-3 col-sm-3 cuisines ">
+           <select id="cuisine_dd">
+                {% for each in cuisines %}
+                  <option value="{{each}}">{{each}}</option>
+                {% endfor %}
+            </select>
+        </div>
+   </div>
+   {% include "recipes.html" %}
+</div>
+<div>
+  {% include "about.html" %}
+  {% include "team.html" %}
+  <!-- {% block about %}
+  {% endblock %} -->
 
+</div>
 
 </div><!-- container -->
 
 {% endblock %}
+<!-- <div class="upload-options">
+  <label>
+    <input type="file" class="image-upload" accept="image/*" />
+  </label>
+</div> -->

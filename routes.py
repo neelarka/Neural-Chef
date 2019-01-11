@@ -4,6 +4,14 @@ import json
 import os
 import glob
 from models import PredictRawVeggies
+import pandas as pd
+from recipes import getRecipes, getdict, getLinksFromcsv
+from random import shuffle
+
+# import app
+#from app import app
+# from app import retrieve_population_data
+#from app import models
 
 
 app = Flask(__name__)
@@ -16,9 +24,7 @@ my_pred = PredictRawVeggies()
 def index():
     print("upload click")
     if request.method == 'POST':
-        print("POST click")
         if request.files.get('file'):
-            print("File is there")
 #
             images = request.files.getlist("file") #convert multidict to dict
             print(f"Images: {images}")
@@ -40,33 +46,42 @@ def index():
             predictions = my_pred.call_predict(filenames, app.config['UPLOAD_FOLDER'])
 
         return jsonify({'result': 'success', 'predictions': predictions})
-        # return ('', 204)
-    # print(my_pred.labels)
-    return render_template('index.html')
+    else:
+        # Get the cusines from the file list
+        cuisines_list = glob.glob("recipes/*.csv")
+        print(cuisines_list)
+        cuisines_df = pd.read_csv(cuisines_list[0])
+
+        print(list(cuisines_df))
+
+    return render_template('index.html', cuisines = list(cuisines_df)[1:])
 
 #####################################################################################
-@app.route('/update', methods=['POST'])
-def update():
+# Define routes ###############################################################
+@app.route("/find_recipe", methods=['POST'])
+def find_recipe():
+    data = {"success": False}
+    if request.method == 'POST':
+        print("find_recipe")
+        print("-------------------------------------")
+        data = request.get_json()
+        ingredients = data['ingredients']
+        cuisine = data['cuisine']
+        #Get the links
+        recipe_links = getLinksFromcsv(cuisine, ingredients)
+        shuffle(recipe_links)
+        print(recipe_links)
 
-    print(f"In update {my_pred.labels}")
-    # get the list
-    filenames = []
-    image_names = request.form.getlist('image[]')
+        #fine the recepies
+        recipes_list = getRecipes(recipe_links[0:2]);
+        #if any recipe found retun success
+        for recipe in recipes_list:
+            if bool(recipe):
+                return jsonify({'data': render_template('recipes.html', object_list=recipes_list)})
 
-    if (image_names == []):
-        filenames = ["No Images to predict"]
-        print("No Images to predict")
-    else:
-        for image_name in image_names:
-            filenames.append(image_name.split('\\')[-1:][0])
+        return json.dumps({ "error": "Cannot find the recipe" }), 500
 
-        predictions = my_pred.call_predict(filenames, app.config['UPLOAD_FOLDER'])
-        # print(f"predictions : {predictions}")
-        # print(filenames)
-
-    return jsonify({'result': 'success', 'predictions': predictions})
-
-######################################################
+# ###########################################################################
 # ###########################################################################
 
 if __name__ == '__main__':

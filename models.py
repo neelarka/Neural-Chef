@@ -9,6 +9,8 @@ from keras.layers import Dense, Flatten, Dropout
 from keras.callbacks import ModelCheckpoint
 import numpy as np
 import pandas as pd
+from keras import backend as K
+from keras.models import model_from_json
 
 class PredictRawVeggies:
 
@@ -23,36 +25,42 @@ class PredictRawVeggies:
         df_labels = df_labels.sort_values(by=['Index'])
         self.labels= list(df_labels['Label'])
         self.num_labels = len(self.labels)
-
+        K.clear_session()
         self.create_model()
-        
+
         self.model_final._make_predict_function()
 
 
     ############################################################################
     def create_model(self):
-        #load the model
-        model = applications.VGG19(weights = "imagenet", include_top=False, input_shape = (self.img_width, self.img_height, 3))
-        #disable few layers
-        for layer in model.layers[:5]:
-            layer.trainable = False
 
-        #Add layers
-        x = model.output
-        x = Flatten()(x)
-        x = Dense(128, activation="relu")(x)
-        x = Dropout(0.5)(x)
-        x = Dense(128, activation="relu")(x)
-        x = Dropout(0.2)(x)
-        x = Dense(128, activation="relu")(x)
-        #Add output layer
-        predictions = Dense(self.num_labels, activation="softmax")(x)
-        #create the final model
-        self.model_final = Model(inputs = model.input, outputs = predictions)
+        json_file = open("vgg19_4_arch.json", 'r')
+        loaded_model_json = json_file.read()
+        json_file.close()
+        self.model_final = model_from_json(loaded_model_json)
+        self.model_final.load_weights("vgg19_4_50.h5")
+        #load the model
+        # model = applications.VGG19(weights = "imagenet", include_top=False, input_shape = (self.img_width, self.img_height, 3))
+        # #disable few layers
+        # for layer in model.layers[:5]:
+        #     layer.trainable = False
+        #
+        # #Add layers
+        # x = model.output
+        # x = Flatten()(x)
+        # x = Dense(128, activation="relu")(x)
+        # x = Dropout(0.5)(x)
+        # x = Dense(128, activation="relu")(x)
+        # x = Dropout(0.2)(x)
+        # x = Dense(128, activation="relu")(x)
+        # #Add output layer
+        # predictions = Dense(self.num_labels, activation="softmax")(x)
+        # #create the final model
+        # self.model_final = Model(inputs = model.input, outputs = predictions)
         #load the weights
-        self.model_final.load_weights("vgg19_pictorecipe_model.h5")
+        # self.model_final.load_weights("vgg19_4_50.h5")
         # compile the model
-        self.model_final.compile(loss = "categorical_crossentropy", optimizer = optimizers.SGD(lr=0.0001, momentum=0.9), metrics=["accuracy"])
+        # self.model_final.compile(loss = "categorical_crossentropy", optimizer = optimizers.SGD(lr=0.0001, momentum=0.9), metrics=["accuracy"])
 
     ######################################################################
     def call_predict(self, images, folder):
@@ -70,8 +78,14 @@ class PredictRawVeggies:
             predict = self.model_final.predict(test_image)
             # print(predict)
             zip_pred= zip(predict[0], self.labels)
+            # if the prediction is high then only senf the value
+            match_found = False
             for pred_value, pred in zip_pred:
-                if (pred_value > 0.7):
+                if (pred_value > 0.8):
+                    match_found = True
                     predictions.append((image_name, pred))
+
+            if(not(match_found)):
+                predictions.append((image_name, ""))
 
         return predictions
