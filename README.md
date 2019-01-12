@@ -1,2 +1,3 @@
-# Neural-Chef
+## Neural-Chef
+![Screenshot](Images/Screenshot.jpg)
  
