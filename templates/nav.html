@@ -1,0 +1,54 @@
+{% block navbar %}
+<!-- Navigation -->
+
+<nav class="navbar navbar-expand-lg navbar-light bg-light sticky-top">
+  <a style="font-weight: bolder !important;  font-size:20px;    font-family: 'Raleway', sans-serif;  color: #4CBA78!important;
+  letter-spacing: .35em;">
+    <img src="https://docs.google.com/drawings/d/e/2PACX-1vQJlVT1VzMzfyrQLQ6yEqIkMCA1XYSLci6F1lrfii9ARG99ACy7NWkZ7h2js-2oN-FDPN9QWDtxM0GO/pub?w=960&h=720"
+      width="60" height="60" class="d-inline-block align-top" alt="">
+    NEURAL CHEF
+  </a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown"
+    aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse" id="navbarNavDropdown">
+    <ul class="navbar-nav" style="text-align: center !important;">
+      <li class="nav-item">
+        <a class="nav-link" href="#how">Instructions</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="#about">About</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="#team">Team</a>
+      </li>
+    </ul>
+  </div>
+</nav>
+
+<!-- Header -->
+<header class="masthead">
+  <div class="container">
+    <div class="intro-text">
+      <div class="intro-lead-in">Welcome To Neural Chef!</div>
+      <div class="intro-heading text-uppercase">Let's eat healthy together!</div>
+      <button type="button" class="btn btn-primary btn-xl text-uppercase js-scroll-trigger rounded-pill mt-5"
+        data-toggle="popover" id="how" title="To use" data-trigger="focus" data-placement="bottom"  data-content="First, snap a picture of each vegetable in your pantry. Neural Chef will identify the vegetables and generate healthy and delicious recipes! ">
+        Tell Me How</button>
+
+    </div>
+  </div>
+</header>
+
+<!-- Description Section  -->
+<div class="container-fluid padding">
+  <div class="row welcome text-center">
+    <div class="col-12">
+      <hr>
+        <h3 class="section-subheading text-muted"> Use neural networks to identify vegetables and discover delicious and healthy recipes.</h3>
+    </div>
+
+  </div>
+</div>
+{% endblock %}
