@@ -1,0 +1,35 @@
+{% block recipes %}
+<div id="products">
+    <div class="row view-group">
+    {% for object in object_list %}
+            <div class="item col-xs-4 col-lg-4">
+                <div class="thumbnail card">
+                    <div class="img-event">
+                        <!-- <img class="group list-group-image img-fluid" src={{object.image}} alt="https://appharbor.com/assets/images/stackoverflow-logo.png"  /> -->
+                        <img class="group list-group-image img-fluid" src={{object.image}} alt="Recipe" onerror="if (this.src != 'https://appharbor.com/assets/images/stackoverflow-logo.png') this.src = 'https://appharbor.com/assets/images/stackoverflow-logo.png';"> />
+                    </div>
+                    <div class="caption card-body">
+                        <h4 class="group card-title inner list-group-item-heading">{{object.title}}</h4>
+                        <h6 class="groupinner ">Ingredients</h6>
+                        {% for ingredient in object.ingredients %}
+                            <p class="groupinner ">{{ingredient}}</p>
+                        {% endfor %}
+                        <h6 class="groupinner ">Instructions</h6>
+                        <p class="group inner list-group-item-text"> {{object.instructions}} </p>
+                        <div class="row">
+                            <div class="col-xs-12 col-md-6">
+                                <p>cooking Mins <mark>{{object.cookingMinutes}}</mark></p>
+                                <p>prep Mins <mark>{{object.preparationMinutes}}</mark></p>
+                            </div>
+                            <div class="col-xs-12 col-md-6">
+                                <a class="btn btn-success" href="{{object.sourceUrl}}">Source Page</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+
+{% endblock %}
