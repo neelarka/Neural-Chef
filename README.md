@@ -1,11 +1,11 @@
                                                           
                                                           
-                                                          NEURAL CHEF        
+## NEURAL CHEF        
 
 ![Screenshot](Images/Screenshot.jpg)  
 
                                     
-                                    NeuralChef app <a href="https://neural-chefs.herokuapp.com/"> </a>
+NeuralChef app <a href="https://neural-chefs.herokuapp.com/"> </a>
                                          
 ‘NEURALCHEF’ – Our team is very much into good food and home cooking, so coming up with some idea along those lines was very appetizing for us. Ultimately it dawned on us: What can be more appealing and tempting than ‘Delectable Recipes’ which we can make at the comfort of our home with the ingredients we have on hands!! For any recipe to be tantalizing, the basic ingredients is ‘Veggies’. We thought what if we create an internet application, wherein the user can upload images of their desired produce and can get appropriate healthy and delicious recipe recommendations in return. This is how the app NEURALCHEF came to being.
 
