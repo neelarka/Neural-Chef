@@ -12,11 +12,6 @@ Upload the Images of the ingredients
 Select the desired cusine and search for any recipe by clicking SHOW RECIPES button
 
 TEAM MEMBERS:
-Ananya Yetigadda
-Gabriela Cantu
-Shruthi Elkal
-Subha Prashanth
-Trupti Samant
-Tinku Supakar
+Ananya Yetigadda, Gabriela Cantu, Shruthi Elkal, Subha Prashanth, Trupti Samant and Tinku Supakar
 
-The detailed report can be found at Readme
+For more details on the code, refer the README
