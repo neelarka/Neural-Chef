@@ -1,6 +1,6 @@
                                                           
                                                           
-## NEURAL CHEF        
+## NEURAL CHEF ##    
 
 ![Screenshot](Images/Screenshot.jpg)  
 
@@ -11,11 +11,11 @@ NeuralChef app <a href="https://neural-chefs.herokuapp.com/"> </a>
 
 If you are having unexpected guests over or running out of ideas and looking for a perfect recipe for dinner tonight or simply wondering what to do with all those veggies just sitting around in your refrigerator, then this app gives you the perfect solution. The app allows for easy recipe search also featuring a filter option for cuisine-based recipes. You will now be able to cook from your phone or computer with ease. Think of this app as your personal  cookBook full of palatable recipes.
 
-INSTRUCTIONS ON HOW TO USE THE APP:
+**INSTRUCTIONS ON HOW TO USE THE APP:**
 Upload live image/images of the available produce 
 Select the desired cuisine from the list and click SHOW RECIPES button to explore the multiple recipe options
 
-TEAM MEMBERS:
+**TEAM MEMBERS:**
 Ananya Yetigadda, Gabriela Cantu, Shruthi Elkal, Subha Prashanth, Trupti Samant and Tinku Supakar
 
 For more details on the code, refer [Project_Schema](https://github.com/neelarka/Neural-Chef/blob/Subha/Project_Schema.docx)
