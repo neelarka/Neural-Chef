@@ -14,4 +14,4 @@ Select the desired cusine and search for any recipe by clicking SHOW RECIPES but
 TEAM MEMBERS:
 Ananya Yetigadda, Gabriela Cantu, Shruthi Elkal, Subha Prashanth, Trupti Samant and Tinku Supakar
 
-For more details on the code, refer the README
+For more details on the code, refer Project_Schema.docx
