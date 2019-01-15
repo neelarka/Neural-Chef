@@ -1,8 +1,8 @@
                                                           
                                                           
-## NEURAL CHEF ##    
+   ## NEURAL CHEF ##    
 
-![Screenshot](Images/Screenshot.jpg)  
+  ![Screenshot](Images/Screenshot.jpg)  
 
                                     
  <a href="https://neural-chefs.herokuapp.com/">NeuralChef app</a>
