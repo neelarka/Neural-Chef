@@ -2,7 +2,7 @@
 
 Using deep learning for image recognition allows a computer to learn from a training data set what the important "features" of the images are. A data-driven approach of solving image classification is achieved by creating an algorithm which classifies images into specific groups. This is done by providing the algorithm with numerous examples of each image category and so trained to learn about the unique visual characteristics in each category. As an introductory project for ourselves, we chose to use a pre-trained image classifier that comes with Keras/TensorFlow (VGG19) and retrain it on our dataset. By using a hierarchy of numerous artificial neurons, the NN automatically classifies images with a higher degree of accuracy. This is one of the best examples showcasing how to train Deep Convolutional Neural Networks (DCNN) with Keras by classifying images of specific vegetable categories and outputting appropriate healthy recipe recommendations.
 
-Project in a nutshell
+**Project in a nutshell**
 •	Using a pre-trained image classifier with Keras/TensorFlow 
 •	Image augmentation
 •	Image classification using VGG19 Model
